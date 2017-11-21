@@ -15,30 +15,12 @@ namespace WebPixInAPI.Controllers
         {
             return  ClienteDAO.GetAll();
         }
-
-        // GET: api/Cliente/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
         
         // POST: api/Cliente
         [HttpPost]
-        public void Post([FromBody]string value)
+        public string Post([FromBody]Cliente cliente)
         {
-        }
-        
-        // PUT: api/Cliente/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-        
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return ClienteDAO.Save(cliente);
         }
     }
 }

@@ -67,5 +67,19 @@ namespace WebPixInAPI.Controllers
             return retorno;
             
         }
+
+        [HttpGet("{aux}")]
+        [ActionName("GetAll")]
+        public List<MotorAux> GetAll()
+        {
+            return MotorAuxDAO.GetAll();
+        }
+
+        [HttpPost]
+        [ActionName("Save")]
+        public string Save([FromBody]MotorAux motorAux)
+        {
+            return MotorAuxDAO.Save(motorAux);
+        }
     }
 }

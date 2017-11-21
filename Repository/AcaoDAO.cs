@@ -8,7 +8,8 @@ namespace Repository
 {
    public class AcaoDAO
     {
-        public static List<Acao> GetAll()
+       
+        public static IEnumerable<Acao> GetAll()
         {
             try
             {
@@ -22,7 +23,38 @@ namespace Repository
                 ////
                 return new List<Acao>();
             }
+        }
 
+        public static string Save(Acao obj)
+        {
+            obj.DataCriacao = DateTime.Now;
+            obj.DateAlteracao = DateTime.Now;
+            try
+            {
+                if (obj.ID == 0)
+                {
+                    using (var db = new WebPixInContext())
+                    {
+                        db.Acao.Add(obj);
+                        db.SaveChanges();
+                    }
+                    return "Cliente salvo com sucesso";
+                }
+                else
+                {
+                    using (var db = new WebPixInContext())
+                    {
+
+                        db.Acao.Update(obj);
+                        db.SaveChanges();
+                        return "Cliente salvo com sucesso";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return "Houve falha";
+            }
         }
     }
 }

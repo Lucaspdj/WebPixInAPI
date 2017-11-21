@@ -25,5 +25,37 @@ namespace Repository
             }
 
         }
+
+        public static string Save(Parametro obj)
+        {
+            obj.DataCriacao = DateTime.Now;
+            obj.DateAlteracao = DateTime.Now;
+            try
+            {
+                if (obj.ID == 0)
+                {
+                    using (var db = new WebPixInContext())
+                    {
+                        db.Parametro.Add(obj);
+                        db.SaveChanges();
+                    }
+                    return "Cliente salvo com sucesso";
+                }
+                else
+                {
+                    using (var db = new WebPixInContext())
+                    {
+
+                        db.Parametro.Update(obj);
+                        db.SaveChanges();
+                        return "Cliente salvo com sucesso";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return "Houve falha";
+            }
+        }
     }
 }

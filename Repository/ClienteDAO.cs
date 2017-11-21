@@ -23,5 +23,37 @@ namespace WebPixRepository
             }
 
         }
+
+        public static string Save(Cliente obj)
+        {
+            obj.DataCriacao = DateTime.Now;
+            obj.DateAlteracao = DateTime.Now;
+            try
+            {
+                if (obj.ID == 0)
+                {
+                    using (var db = new WebPixInContext())
+                    {
+                        db.Cliente.Add(obj);
+                        db.SaveChanges();
+                    }
+                    return "Cliente salvo com sucesso";
+                }
+                else
+                {
+                    using (var db = new WebPixInContext())
+                    {
+
+                        db.Cliente.Update(obj);
+                        db.SaveChanges();
+                        return "Cliente salvo com sucesso";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return "Houve falha";
+            }
+        }
     }
 }
