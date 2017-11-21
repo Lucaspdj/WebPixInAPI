@@ -68,7 +68,6 @@ namespace WebPixInAPI.Controllers
             
         }
 
-        [HttpGet("{aux}")]
         [ActionName("GetAll")]
         public List<MotorAux> GetAll()
         {
