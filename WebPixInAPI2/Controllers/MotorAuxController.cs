@@ -58,7 +58,7 @@ namespace WebPixInAPI.Controllers
             retorno.ID = motor.ID;
             retorno.Nome = motor.Nome;
             retorno.Descricao = motor.Descricao;
-            retorno.Ativo = true.ToString();
+            retorno.Ativo = true;
             retorno.Status = 1;
             retorno.idCliente = motor.idCliente;
             retorno.Url = motor.Url;
