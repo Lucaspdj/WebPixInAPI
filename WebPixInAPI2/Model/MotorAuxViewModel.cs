@@ -7,5 +7,7 @@ namespace WebPixInAPI.Model
     {
         public List<AcaoViewModel> Acoes { get; set; }
         public string Url { get; set; }
+        public string ArquivoBat { get; set; }
+        public int IDProcesso { get; set; }
     }
 }

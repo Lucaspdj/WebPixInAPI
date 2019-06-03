@@ -15,8 +15,8 @@ namespace WebPixInAPI.Controllers
         [ActionName("acessarmotor")]
         public MotorAuxViewModel acessarmotor(string aux)
         {
-            MotorAuxViewModel retorno = new MotorAuxViewModel();
             MotorAux motor = MotorAuxDAO.GetAll().Where(x => x.Nome == aux).FirstOrDefault();
+            MotorAuxViewModel retorno = new MotorAuxViewModel();
             List<AcaoViewModel> listAcao = new List<AcaoViewModel>();
 
             foreach (Acao acao1 in AcaoDAO.GetAll().Where(x => x.idMotorAux == motor.ID).ToList())

@@ -6,5 +6,7 @@ namespace Entity
     {
         public string Metodo { get; set; }
         public string Url { get; set; }
+        public string ArquivoBat { get; set; }
+        public string IDProcesso{ get; set; }
     }
 }
